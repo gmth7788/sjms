@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+class Strategy{
+  public:
+    void virtual AlgrithmInterface() = 0;
+};
+
+class ConcreteStrategyA : Strategy
+{
+  public:
+  void AlgrithmInterface(){
+    puts("具体算法A");
+  }
+};
+
+class ConcreteStrategyB : Strategy
+{
+  public:
+  void AlgrithmInterface(){
+    puts("具体算法B");
+  }
+};
+
+
+class Context{
+  protected:
+  Strategy * strategy;
+
+  public:
+  void ContextInterface(Strategy * strategy){
+    this->strategy = strategy;
+
+    strategy->AlgrithmInterface();
+  }
+};
+
+
+
